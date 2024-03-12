@@ -3,16 +3,22 @@
   if(!isset($_SESSION["user_id"])){
     header("location:login.php");
   }
- ?>
+?>
 <html>
   <head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
-    <link rel='stylesheet' type='text/css' href='styles.css' >
+    <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
   </head>
   <body>
-  <div style='padding:50px;'>
-    <p ><a href='logout.php' style='font-size:18px;'>Logout</a></p>
-    <div class='msg-success'><b>Welcome </b> : <?php echo $_SESSION["user_name"]; ?></div>
-  </div>
+    <div class="content">
+      <div class="container">
+        <div class="home-container">
+          <span class='home-header'>Welcome, <b class="home-user-name"><?php echo $_SESSION["user_name"]; ?>!</b></span>
+          <a href='logout.php' class= "logout-btn">Logout</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
