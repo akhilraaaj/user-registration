@@ -4,10 +4,10 @@
 ?>
 <html>
   <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
   </head>   
   <body>
     <div class="content">
@@ -29,16 +29,17 @@
           </div>
           <?php 
             if(isset($_POST["submit"])) {
-              $u_name=mysqli_real_escape_string($con,$_POST["user_name"]);
-              $u_pass=mysqli_real_escape_string($con,$_POST["user_password"]);
-              $sql="select id,name from users where name='{$u_name}' and password='{$u_pass}'";
-              $res=$con->query($sql);
-              if($res->num_rows>0) {
-                $row=$res->fetch_assoc();
-                $_SESSION["user_id"]=$row["id"];
-                $_SESSION["user_name"]=$row["name"];
+              $u_name = mysqli_real_escape_string($con, $_POST["user_name"]);
+              $u_pass = mysqli_real_escape_string($con, $_POST["user_password"]);
+              //BINARY to check case-sensitivity for password
+              $sql = "SELECT id, name FROM users WHERE name='{$u_name}' AND BINARY password='{$u_pass}'";
+              $res = $con->query($sql);
+              if($res->num_rows > 0) {
+                $row = $res->fetch_assoc();
+                $_SESSION["user_id"] = $row["id"];
+                $_SESSION["user_name"] = $row["name"];
                 header("location:home.php");
-              }else {
+              } else {
                 echo "<div class='msg-danger'>Invalid Credentials!!</div>";
               }
             }

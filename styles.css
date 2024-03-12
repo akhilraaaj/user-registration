@@ -104,18 +104,18 @@ form {
   text-align: center;
 }
 
-.home-header {
-  color: #28a745;
-  margin-top: 10px;
-  font-size: 25px;
-  text-align: center;
-}
-
 .home-container {
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.home-header {
+  color: #28a745;
+  margin-top: 10px;
+  font-size: 25px;
+  text-align: center;
 }
 
 .logout-btn {
@@ -140,3 +140,4 @@ form {
     padding: 20px;
   }
 }
+
