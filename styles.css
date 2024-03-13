@@ -29,7 +29,7 @@ body {
   margin-bottom: 20px;
 }
 
-form {
+#form {
   display: flex;
   flex-direction: column;
   gap: 10px;
