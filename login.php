@@ -30,7 +30,7 @@
           <?php 
             if(isset($_POST["submit"])) {
               $u_name = mysqli_real_escape_string($con, $_POST["user_name"]);
-              // Check if the username exists in the database
+              // Check if the username exists in the database or not
               $check_username_query = "SELECT id, name FROM users WHERE name='{$u_name}'";
               $check_username_result = $con->query($check_username_query);
               if($check_username_result->num_rows > 0) { // Username exists
