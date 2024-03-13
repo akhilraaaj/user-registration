@@ -37,11 +37,11 @@
               if(mysqli_num_rows($check_result) > 0) {
                 echo "<div class='msg-danger'>Username already exists! Please choose another username.</div>";
               } else {
-                // Username validation
+                //Validate username
                 if(strlen($u_name) < 3) {
                   echo "<div class='msg-danger'>Username must be at least 3 characters long.</div>";
                 } 
-                //Password Validation
+                //Validate password
                 else if(strlen($u_pass) < 5 || !preg_match("/\d/", $u_pass)) {
                   echo "<div class='msg-danger'>Password must be at least 5 characters long and should include at least one digit.</div>";
                 }
