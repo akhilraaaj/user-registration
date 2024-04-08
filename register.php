@@ -3,12 +3,14 @@
   include "config.php";
   $error_message = "";
   $success_message = "";
+
   if(isset($_POST["submit"])) {
     $u_name=mysqli_real_escape_string($con,$_POST["user_name"]);
     $u_pass=mysqli_real_escape_string($con,$_POST["user_password"]);
     //Check if username already exists or not
     $check_query = "SELECT * FROM users WHERE name='$u_name'";
     $check_result = mysqli_query($con, $check_query);
+    
     if(mysqli_num_rows($check_result) > 0) {
         $error_message = "<div class='msg-danger'>Username already exists! Please choose another username.</div>";
     } else {
